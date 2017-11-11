@@ -1,0 +1,28 @@
+{
+  "name": "registerelement",
+  "version": "1.0.0",
+  "description": "Register a custom element painlessly!",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kiricon/RegisterElement.git"
+  },
+  "keywords": [
+    "custom",
+    "element",
+    "register",
+    "shadow",
+    "dom",
+    "automatically",
+    "html"
+  ],
+  "author": "Dominic Valenciana",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kiricon/RegisterElement/issues"
+  },
+  "homepage": "https://github.com/Kiricon/RegisterElement#readme"
+}
