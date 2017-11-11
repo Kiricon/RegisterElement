@@ -10,7 +10,7 @@ function buildTagName(name) {
     }).join('');
 }
 
-exports = (c) => {
+module.exports = (c) => {
     const template = document.createElement('template');
     template.innerHTML = c.prototype.template();
     c.prototype.template = null;
