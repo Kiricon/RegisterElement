@@ -10,12 +10,15 @@ function buildTagName(name) {
     }).join('');
 }
 
-module.exports = (c) => {
+module.exports = (c, shadowRoot) => {
+
+    shadowRoot = shadowRoot || true;
+
     const template = document.createElement('template');
     template.innerHTML = c.prototype.template();
     c.prototype.template = null;
 
-    class b extends c {
+    class ShadowRootCustomElement extends c {
         constructor() {
             super();
             this.attachShadow({mode: 'open'});
@@ -24,5 +27,17 @@ module.exports = (c) => {
 
         template() {}
     }
-    customElements.define(buildTagName(c.name), b);
+
+    class InlineCustomElement extends c {
+        constructor() {
+            super();
+            this.appendChild(template.content.cloneNode(true));
+        }
+    }
+
+    if(shadowRoot) {
+        customElements.define(buildTagName(c.name), ShadowRootCustomElement);
+    }else {
+        customElements.define(buildTagName(c.name), InlineCustomElement)
+    }
 }
