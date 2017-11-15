@@ -12,7 +12,7 @@ function buildTagName(name) {
 
 module.exports = (c, shadowRoot) => {
 
-    shadowRoot = shadowRoot || true;
+    shadowRoot = shadowRoot === undefined ?  true : shadowRoot;
 
     const template = document.createElement('template');
     template.innerHTML = c.prototype.template();
@@ -38,6 +38,6 @@ module.exports = (c, shadowRoot) => {
     if(shadowRoot) {
         customElements.define(buildTagName(c.name), ShadowRootCustomElement);
     }else {
-        customElements.define(buildTagName(c.name), InlineCustomElement)
+        customElements.define(buildTagName(c.name), InlineCustomElement);
     }
 }
